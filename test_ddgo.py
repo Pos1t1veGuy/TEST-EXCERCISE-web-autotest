@@ -17,10 +17,10 @@ from typing import *
 @pytest.fixture(scope="module")
 def driver():
 	options = Options()
-	#options.add_argument("--headless")
+	options.add_argument("--headless")
 	driver = webdriver.Firefox(options=options)
 	yield driver
-	#driver.quit()
+	driver.quit()
 
 def get_ddgo_results(driver: webdriver.Firefox, question: str, data_layout: str = 'organic') -> List[WebElement]:
 	# data_laoyout=organic - это обычные результаты, может быть еще data_laoyout=videos
